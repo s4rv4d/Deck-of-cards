@@ -77,14 +77,14 @@ func newDeckFromFile(filename string) deck {
 
 //shuffling procedure
 func (d deck) shuffle() {
-	for i := range d {
-		//generating a random int64 value through time packages unixnano
-		it64 := time.Now().UnixNano()
-		//generating random new seed
-		s := rand.NewSource(it64)
-		//creating new rand
-		r := rand.New(s)
+	//generating a random int64 value through time packages unixnano
+	it64 := time.Now().UnixNano()
+	//generating random new seed
+	s := rand.NewSource(it64)
+	//creating new rand
+	r := rand.New(s)
 
+	for i := range d {
 		//generating random number using new seed
 		np := r.Intn(len(d) - 1)
 
